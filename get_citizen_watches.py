@@ -1,9 +1,10 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 
 import requests
 from bs4 import BeautifulSoup as bs
 
 preurl = "https://www.citizenwatch.com/us/en/{}/?sz=24&start={}&format=page-element"
+# 'mens' or 'ladies', literal string
 sex = 'mens'
 
 start = 0
@@ -20,7 +21,7 @@ while True:
         img = item.find_all('img')
         try:
             response = requests.get('http:{}'.format(img[0].get('src')))
-            with open('C:\\Users\\jonnyg\\Desktop\\watches\\{}.png'.format(filename), 'wb') as f:
+            with open('citizen_watches\\{}.png'.format(filename), 'wb') as f:
                 f.write(response.content)
         except:
             print('Failed to get image for {}'.format(filename))

@@ -17,7 +17,7 @@ for item in watches['results']:
     url = 'https://storage.seikowatches.com/production/images' + item['thumbnail']['url_key'] + '_medium.png'
     try:
         response = requests.get(url)
-        with open('C:\\Users\\jonnyg\\Desktop\\watches\\{}.png'.format(filename), 'wb') as f:
+        with open('seiko_watches\\{}.png'.format(filename), 'wb') as f:
             f.write(response.content)
     except:
         print('Failed to get image for {}'.format(filename))
